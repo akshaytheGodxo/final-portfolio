@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image"
 import Link from "next/link"
+import { motion } from "framer-motion"
 
 export default function MainHome() {
     return (
@@ -44,7 +46,7 @@ export default function MainHome() {
                     <button className="w-[304px] h-[68px] bg-black text-white rounded-[45px]">
                         Let's connect
                     </button>
-                    <button className="w-[304px] h-[68px] bg-transparent border border-black text-black rounded-[45px]">
+                    <button className="w-[304px] h-[68px] shadow-xl bg-transparent border border-black text-black rounded-[45px]">
                         View resume
                     </button>
                 </div>
@@ -74,7 +76,31 @@ export default function MainHome() {
                 </div>
             </div>
 
-            <div className="hidden md:block"></div>
+            <div className=" md:block items-center justify-center flex flex-col">
+                <div className="w-full flex flex-col items-center justify-center relative">
+                    <motion.div
+                        initial={{ height: 0 }}
+                        animate={{ height: 528 }}
+                        transition={{ duration: 1.8, ease: "easeInOut" }}
+                        className="w-[2px] bg-black"
+                    />
+
+                    <motion.div
+                        initial={{ y: 0 }}
+                        animate={{ y: 500 }}
+                        transition={{ duration: 2, ease: "easeInOut" }}
+                        className="absolute top-0"
+                    >
+                        <Image
+                            src="/Spider.png"
+                            alt="Spider"
+                            width={90}
+                            height={90}
+                        />
+                    </motion.div>
+
+                </div>
+            </div>
         </section>
     )
 }
