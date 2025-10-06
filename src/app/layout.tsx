@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { AnimatePresence } from "framer-motion";
 import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import TransitionProvider from "@/components/Stairs";
+import { PropsWithChildren } from "react";
+import { LayoutRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
@@ -22,6 +25,9 @@ export const metadata: Metadata = {
   description: "My portfolio",
 };
 
+
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,9 +38,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${jetBrainsMono.variable} antialiased`}
       >
-        <TransitionProvider >
-          {children}
-        </TransitionProvider>
+
+        
+          <TransitionProvider>{children}</TransitionProvider>
       </body>
     </html>
   );

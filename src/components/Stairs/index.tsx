@@ -2,8 +2,22 @@
 "use client";
 import { motion, AnimatePresence, animate } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { opacity, expand } from "./anim";
+import { opacity, expand } from "@/components/Stairs/anim";
 import './styles.css'
+import { useContext, useRef, PropsWithChildren } from "react"
+import { LayoutRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
+function FrozenRouter(props: PropsWithChildren<{}>) {
+  const context = useContext(LayoutRouterContext);
+  const frozen = useRef(context).current;
+
+  return (
+    <LayoutRouterContext.Provider value={frozen}>
+      {props.children}
+    </LayoutRouterContext.Provider>
+  )
+}
+
+
 export default function TransitionProvider({ children, backgroundColor }: { children: React.ReactNode, backgroundColor?: string }) {
   const pathname = usePathname();
 
@@ -35,7 +49,7 @@ export default function TransitionProvider({ children, backgroundColor }: { chil
                     )
                 })
             }</div>
-          {children}
+          <FrozenRouter>{children}</FrozenRouter>
       </div>
     </AnimatePresence>
   );

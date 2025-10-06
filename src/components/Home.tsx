@@ -2,8 +2,11 @@
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
-
+import { useRouter } from "next/navigation";
 export default function MainHome() {
+
+    const router = useRouter();
+
     return (
         <section className="min-h-screen grid grid-cols-1  md:grid-cols-3  ">
             {/* mobile view */}
@@ -81,12 +84,12 @@ export default function MainHome() {
                     >
                         home
                     </Link>
-                    <Link
-                        href="/experience"
+                    <button
+                        onClick={() => router.push("/experience")}
                         className="font-[Jetbrains_Mono] text-black text-8xl"
                     >
                         experience
-                    </Link>
+                    </button>
                     <Link
                         href="#about"
                         className="font-[Jetbrains_Mono] text-black text-8xl"
