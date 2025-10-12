@@ -26,19 +26,19 @@ export default function MainHome() {
                     <div className="grid grid-rows-3 grid-cols-1 mt-39 space-y-[30px]">
                         <Link
                             href="#home"
-                            className="font-[Jetbrains_Mono] text-black text-6xl"
+                            className="font-[Jetbrains_Mono] text-black text-6xl cursor-pointer"
                         >
                             home
                         </Link>
                         <Link
                             href="#experience"
-                            className="font-[Jetbrains_Mono] text-black text-6xl"
+                            className="font-[Jetbrains_Mono] text-black text-6xl cursor-pointer"
                         >
                             experience
                         </Link>
                         <Link
                             href="#about"
-                            className="font-[Jetbrains_Mono] text-black text-6xl"
+                            className="font-[Jetbrains_Mono] text-black text-6xl cursor-pointer"
                         >
                             about
                         </Link>
