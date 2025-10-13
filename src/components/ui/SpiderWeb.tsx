@@ -43,7 +43,7 @@ export function SpiderWeb({ experiences }: SpiderWebProps) {
   }, []);
 
   const containerHeight = containerRef.current?.clientHeight || 0;
-  const spiderTop = scrollProgress * (containerHeight - 150); // 150 = spider height offset
+  const spiderTop = scrollProgress * (containerHeight - 150); 
 
   useEffect(() => {
     lottieRef.current?.play();
@@ -54,10 +54,8 @@ export function SpiderWeb({ experiences }: SpiderWebProps) {
       ref={containerRef}
       className="relative w-full flex flex-col items-center justify-center overflow-hidden px-4 sm:px-8"
     >
-      {/* vertical timeline line */}
       <div className="absolute top-0 bottom-0 w-[2px] bg-white/40 left-1/2 -translate-x-1/2 z-0" />
 
-      {/* timeline content */}
       <div className="flex flex-col gap-24 sm:gap-32 mt-40">
         {experiences.map((exp, i) => (
           <div
@@ -78,7 +76,7 @@ export function SpiderWeb({ experiences }: SpiderWebProps) {
 
             {/* middle web line */}
             <div className="relative flex justify-center items-center">
-              <div className="h-[300px] sm:h-[400px] w-[2px] bg-white relative"></div>
+              {/* <div className="h-[300px] sm:h-[400px] w-[2px] bg-white relative"></div> */}
               <Image
                 src="/Spider web.svg"
                 alt="Spider web"
@@ -103,7 +101,6 @@ export function SpiderWeb({ experiences }: SpiderWebProps) {
         ))}
       </div>
 
-      {/* spider animation */}
       <Lottie
         animationData={spiderwalkAnimation}
         lottieRef={lottieRef}
@@ -120,8 +117,7 @@ export function SpiderWeb({ experiences }: SpiderWebProps) {
         className="w-fit"
       />
 
-      {/* end web */}
-      <div className="h-[200px] w-full flex flex-col items-center justify-center mt-[1200px] sm:mt-[1400px] text-white">
+      <div className="h-[200px] w-full flex flex-col items-center justify-center mt-[50px] sm:mt-[300px] text-white">
         <Image
           src="/Spider web.svg"
           alt="End Web"
