@@ -2,8 +2,8 @@
 import Link from 'next/link'
 import React from 'react'
 import Navbar from '@/components/Navbar'
-import { desc } from 'framer-motion/client';
-import { SpiderWeb } from '@/components/ui/SpiderWeb';
+import { SpiderWeb } from '@/components/ui/SpiderWeb'
+
 const experiences = [
   {
     company: "Microsoft",
@@ -18,7 +18,6 @@ const experiences = [
     title: "Software Engineer Intern",
     description: "Developed a new feature for Google Maps that improved user navigation experience, leading to a 10% increase in user engagement.",
     position: "right",
-
   },
   {
     company: "Amazon",
@@ -34,26 +33,27 @@ const experiences = [
     description: "Implemented a machine learning algorithm to improve content recommendation, resulting in a 20% increase in user retention.",
     position: "right"
   },
-  
 ]
 
-
-
-const page = () => {
+const Page = () => {
   return (
-    <section className='bg-[#69CF73] min-h-screen flex flex-col px-3.5 font-[Jetbrains_Mono] '>
+    <section className='bg-[#69CF73] min-h-screen flex flex-col px-3.5 font-[Jetbrains_Mono] overflow-x-hidden'>
       {/* header */}
-      <div className='flex flex-row justify-between'>
-        <header className='text-8xl font-normal'>experience</header>
-        <Navbar />
+      <div className='flex flex-row justify-between items-center flex-wrap gap-4 mt-4 sm:mt-6 md:mt-8'>
+        <header className='text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-normal'>
+          experience
+        </header>
+        <div className='shrink-0'>
+          <Navbar />
+        </div>
       </div>
-      
+
       {/* timeline */}
-      <div className='relative w-full mt-16'>
-        <SpiderWeb experiences={experiences}/>
+      <div className='relative w-full mt-10 sm:mt-12 md:mt-16'>
+        <SpiderWeb experiences={experiences} />
       </div>
     </section>
   )
 }
 
-export default page
+export default Page

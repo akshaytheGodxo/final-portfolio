@@ -1,157 +1,138 @@
 "use client";
-import { useRef, useEffect, useState } from 'react';
-import Lottie, { LottieRef } from 'lottie-react';
+import { useRef, useEffect, useState } from "react";
+import Lottie from "lottie-react";
 import spiderwalkAnimation from "../../../public/ZilqHC70eW.json";
+import Image from "next/image";
 
-
-
-import Image from 'next/image';
-
-
-// interface SpiderWebProps {
-//     company: string;
-//     duration: string;
-//     title: string;
-//     description: string;
-// }
-
+interface Experience {
+  company: string;
+  duration: string;
+  title: string;
+  description: string;
+  position: "left" | "right";
+}
 
 interface SpiderWebProps {
-    experiences: [
-        {
-            company: string;
-            duration: string;
-            title: string;
-            description: string;
-            position: string;
-        }
-    ]
+  experiences: Experience[];
 }
 
 export function SpiderWeb({ experiences }: SpiderWebProps) {
-    const [isScrolling, setIsScrolling] = useState(false);
-    const [scrollDirection, setScrollDirection] = useState<string>();
-    const [scrollPosition, setScrollPosition] = useState(0);
-    const [atWeb, setAtWeb] = useState(false);
-    const lottieRef = useRef(null);
-    const style = {
-        height: 186,
-        transform: `${scrollDirection === "down" ? "rotate(180deg)" : "rotate(0deg)"}`,
-        transition: "transform 0.3s ease",
-        position: 'sticky',
-        top: `${scrollPosition * 100}px`
+  const lottieRef = useRef<any>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [scrollDirection, setScrollDirection] = useState<"up" | "down">("down");
+  const containerRef = useRef<HTMLDivElement>(null);
 
-    }
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
 
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const direction = currentScrollY > lastScrollY ? "down" : "up";
+      setScrollDirection(direction);
+      lastScrollY = currentScrollY;
 
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight;
+      const winHeight = window.innerHeight;
+      const progress = Math.min(scrollTop / (docHeight - winHeight), 1);
+      setScrollProgress(progress);
+    };
 
-    useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
+  const containerHeight = containerRef.current?.clientHeight || 0;
+  const spiderTop = scrollProgress * (containerHeight - 150); // 150 = spider height offset
 
+  useEffect(() => {
+    lottieRef.current?.play();
+  }, [scrollDirection]);
 
-        const handleScroll = () => {
-            const currentScrollY = window.pageYOffset;
+  return (
+    <div
+      ref={containerRef}
+      className="relative w-full flex flex-col items-center justify-center overflow-hidden px-4 sm:px-8"
+    >
+      {/* vertical timeline line */}
+      <div className="absolute top-0 bottom-0 w-[2px] bg-white/40 left-1/2 -translate-x-1/2 z-0" />
 
-            setIsScrolling(true);
+      {/* timeline content */}
+      <div className="flex flex-col gap-24 sm:gap-32 mt-40">
+        {experiences.map((exp, i) => (
+          <div
+            key={i}
+            className="grid grid-cols-1 md:grid-cols-3 items-center justify-center w-full max-w-6xl mx-auto gap-6 md:gap-0"
+          >
+            {/* left section */}
+            {exp.position === "left" ? (
+              <div className="bg-[#4FA669] px-5 py-4 rounded-2xl shadow-lg flex flex-col gap-2 md:ml-auto w-full md:w-[380px] lg:w-[420px] text-center md:text-left">
+                <h2 className="text-white text-xl sm:text-2xl font-semibold">{exp.company}</h2>
+                <p className="text-white/80 text-sm sm:text-base">{exp.duration}</p>
+                <p className="text-white/60 text-xs sm:text-sm">{exp.title}</p>
+                <p className="text-white/60 text-xs sm:text-sm">{exp.description}</p>
+              </div>
+            ) : (
+              <div className="hidden md:block" />
+            )}
 
-            if (currentScrollY > scrollPosition) {
-                setScrollDirection('down');
-            } else {
-                setScrollDirection('up');
-            }
-            setScrollPosition(currentScrollY);
-            console.log(scrollDirection);
-            console.log(scrollPosition);
+            {/* middle web line */}
+            <div className="relative flex justify-center items-center">
+              <div className="h-[300px] sm:h-[400px] w-[2px] bg-white relative"></div>
+              <Image
+                src="/Spider web.svg"
+                alt="Spider web"
+                width={70}
+                height={70}
+                className="absolute w-[60px] sm:w-[70px]"
+              />
+            </div>
 
+            {/* right section */}
+            {exp.position === "right" ? (
+              <div className="bg-[#4FA669] px-5 py-4 rounded-2xl shadow-lg flex flex-col gap-2 md:mr-auto w-full md:w-[380px] lg:w-[420px] text-center md:text-left">
+                <h2 className="text-white text-xl sm:text-2xl font-semibold">{exp.company}</h2>
+                <p className="text-white/80 text-sm sm:text-base">{exp.duration}</p>
+                <p className="text-white/60 text-xs sm:text-sm">{exp.title}</p>
+                <p className="text-white/60 text-xs sm:text-sm">{exp.description}</p>
+              </div>
+            ) : (
+              <div className="hidden md:block" />
+            )}
+          </div>
+        ))}
+      </div>
 
+      {/* spider animation */}
+      <Lottie
+        animationData={spiderwalkAnimation}
+        lottieRef={lottieRef}
+        loop
+        autoplay
+        style={{
+          height: 130,
+          position: "absolute",
+          top: `${spiderTop}px`,
+          transform: scrollDirection === "down" ? "rotate(180deg)" : "rotate(0deg)",
+          transition: "transform 0.25s ease",
+          zIndex: 10,
+        }}
+        className="w-fit"
+      />
 
-        }
-
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('scrollend', () => setIsScrolling(false));
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
-            window.removeEventListener('scrollend', () => setIsScrolling(false))
-        };
-    }, [scrollPosition, isScrolling]);
-
-    useEffect(() => {
-        if (isScrolling) {
-            lottieRef.current?.play();
-        } else {
-            lottieRef.current?.pause();
-        }
-    })
-
-    return (
-        <div className="text-black w-full flex flex-col items-center justify-center relative">
-            {experiences.map((exp, index) => (
-                <div key={index} className="grid grid-cols-3 items-center justify-center w-full relative">
-                    {/* left part */}
-                    {exp.position === "left" ? (
-                        <div className='bg-[#4FA669] px-4 py-2 flex flex-col space-y-2 w-[418] h-[280] left-100 relative'>
-                            <h2 className=' text-white text-[30px]'>{exp.company}</h2> <br />
-                            <h2 className='text-white/80 text-[20px]'>{exp.duration}</h2> <br />
-                            <p className='text-white/60 text-[12px]'> 
-                                {exp.title} <br />
-                                {exp.description}
-                            </p>
-
-                        </div>
-                    ) : (<div className=''>
-
-                    </div>)}
-
-                    {/* middle part */}
-                    <div className="relative flex justify-center">
-                        <div className="h-80 w-[2px] bg-white relative">
-                            
-                        </div>
-                        <Image
-                                src={"/Spider web.svg"}
-                                alt='Spider web'
-                                width={71}
-                                height={58}
-                                objectFit='contain'
-                                className='absolute'
-                            />
-                    </div>
-
-                    {/* right part */}
-                    {exp.position === "right" ? (
-                        <div className='px-4 py-2 flex flex-col space-y-2 bg-[#4FA669] w-[418] h-[226] relative right-66 top-2'>
-                            <h2 className=' text-white text-[30px]'>{exp.company}</h2> <br />
-                            <h2 className='text-white/80 text-[20px]'>{exp.duration}</h2> <br />
-                            <p className='text-white/60 text-[12px]'> 
-                                {exp.title} <br />
-                                {exp.description}
-                            </p>
-                        </div>
-                    ) : (<div className=''>
-
-                    </div>)}
-                </div>
-            ))}
-
-            <Lottie
-                animationData={spiderwalkAnimation}
-                lottieRef={lottieRef}
-                loop
-                autoplay
-                style={{
-                    height: 186,
-                    transform:
-                        scrollDirection === 'down' ? 'rotate(180deg)' : 'rotate(0deg)',
-                    transition: 'transform 0.3s ease',
-                    position: 'absolute',
-                    top: `${scrollPosition * 1.5}px`,
-                    zIndex: 3,
-                }}
-                className="w-fit"
-            />
-
-            <section className="min-h-screen"></section>
-        </div>
-
-    )
+      {/* end web */}
+      <div className="h-[200px] w-full flex flex-col items-center justify-center mt-[1200px] sm:mt-[1400px] text-white">
+        <Image
+          src="/Spider web.svg"
+          alt="End Web"
+          width={100}
+          height={100}
+          className="w-[80px] sm:w-[100px]"
+        />
+        <p className="mt-4 text-base sm:text-lg text-center opacity-70">
+          The journey ends here 🕸️
+        </p>
+      </div>
+    </div>
+  );
 }
