@@ -10,12 +10,14 @@ const experiences = [
     duration: "May 2024 - Aug 2024",
     title: "Software Engineer Intern",
     description: "Worked on enhancing the performance of cloud services by optimizing database queries, resulting in a 15% reduction in latency.",
+    position: "left"
   },
   {
     company: "Google",
     duration: "May 2023 - Aug 2023",
     title: "Software Engineer Intern",
     description: "Developed a new feature for Google Maps that improved user navigation experience, leading to a 10% increase in user engagement.",
+    position: "right",
 
   },
   {
@@ -23,12 +25,14 @@ const experiences = [
     duration: "May 2022 - Aug 2022",
     title: "Software Development Intern",
     description: "Contributed to the development of a scalable microservices architecture for the e-commerce platform, enhancing system reliability and maintainability.",
+    position: "left"
   },
   {
     company: "Facebook",
     duration: "May 2021 - Aug 2021",
     title: "Software Engineer Intern",
     description: "Implemented a machine learning algorithm to improve content recommendation, resulting in a 20% increase in user retention.",
+    position: "right"
   },
   
 ]
@@ -46,7 +50,7 @@ const page = () => {
       
       {/* timeline */}
       <div className='relative w-full mt-16'>
-        <SpiderWeb />
+        <SpiderWeb experiences={experiences}/>
       </div>
     </section>
   )

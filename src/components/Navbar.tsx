@@ -16,7 +16,7 @@ const Navbar = () => {
             {<motion.nav 
             animate={isOpen ? { x : 0} : { x : '100%'}}
             transition={{ type: "tween" , duration: 0.3}}
-            className='fixed  flex flex-col justify-between h-full px-10 uppercase bg-[#4FA655] text-white/80 py-28 gap-y-10 md:w-1/2 md:left-1/2'>
+            className='fixed  flex flex-col justify-between h-full px-10 uppercase bg-[#4FA655] text-white/80 py-28 gap-y-10 md:w-1/2 md:left-1/2 z-50'>
                 <div className='flex flex-col text-8xl font-normal gap-y-2'>
                     {['home', 'experience', 'about', 'contact'].map((section, index) => (
                         <div key={index}>
@@ -36,7 +36,7 @@ const Navbar = () => {
                 </div>
             </motion.nav>}
 
-            <div className='md:w-20 md:h-20 fixed  flex flex-col items-center justify-center gap-1 transition-all duration-300 rounded-full bg-[#4FA655] cursor-pointer right-10 top-4'
+            <div className='md:w-20 md:h-20 fixed  flex flex-col items-center justify-center gap-1 transition-all duration-300 rounded-full bg-[#4FA655] cursor-pointer right-10 top-4 z-50'
                 onClick={toggleMenu}
                 style={showBurger ? { clipPath: "circle(50% at 50% 50%)" } : { clipPath: "circle(0% at 50% 50%" }}
             >

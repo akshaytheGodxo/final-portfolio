@@ -37,7 +37,7 @@ export default function TransitionProvider({ children, backgroundColor }: { chil
 
   return (
     <AnimatePresence mode="wait">
-      <div className="page stairs" key={pathname}>
+      <div className="page stairs " key={pathname}>
           <motion.div
             {...anim(opacity)}
             className="transition-background"
