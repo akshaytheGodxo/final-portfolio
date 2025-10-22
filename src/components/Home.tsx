@@ -37,7 +37,7 @@ export default function MainHome() {
                             experience
                         </Link>
                         <Link
-                            href="#about"
+                            href="/about"
                             className="font-[Jetbrains_Mono] text-black text-6xl cursor-pointer"
                         >
                             about
@@ -86,13 +86,13 @@ export default function MainHome() {
                     </Link>
                     <button
                         onClick={() => router.push("/experience")}
-                        className="font-[Jetbrains_Mono] text-black text-8xl"
+                        className="font-[Jetbrains_Mono] text-black text-8xl cursor-pointer"
                     >
                         experience
                     </button>
                     <Link
-                        href="#about"
-                        className="font-[Jetbrains_Mono] text-black text-8xl"
+                        href="/about"
+                        className="font-[Jetbrains_Mono] text-black text-8xl cursor-pointer"
                     >
                         about
                     </Link>

@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
-import { AnimatePresence } from "framer-motion";
-import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
+import { Geist, Geist_Mono, JetBrains_Mono, Micro_5 } from "next/font/google";
 import "./globals.css";
 import TransitionProvider from "@/components/Stairs";
-import { PropsWithChildren } from "react";
-import { LayoutRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
+});
+
+const micro5 = Micro_5({
+  variable: "--font-micro-5",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 const geistSans = Geist({
@@ -36,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${jetBrainsMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${jetBrainsMono.variable} ${micro5.variable} antialiased`}
       >
 
         

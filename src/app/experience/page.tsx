@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import Navbar from '@/components/Navbar'
 import { SpiderWeb } from '@/components/ui/SpiderWeb'
-
+import { Accordion } from '@/components/ui/Accordion';
 const experiences = [
   {
     company: "Microsoft",
@@ -37,11 +37,11 @@ const experiences = [
 
 const Page = () => {
   return (
-    <section className='bg-[#69CF73] min-h-screen flex flex-col px-3.5 font-[Jetbrains_Mono] overflow-x-hidden'>
+    <section className='bg-[#69CF73] min-h-screen flex flex-col px-4 font-[Jetbrains_Mono] overflow-x-hidden'>
       {/* header */}
       <div className='flex flex-row justify-between items-center flex-wrap gap-4 mt-4 sm:mt-6 md:mt-8'>
         <header className='text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-normal'>
-          experience
+          EXPERIENCES
         </header>
         <div className='shrink-0'>
           <Navbar />
@@ -49,9 +49,7 @@ const Page = () => {
       </div>
 
       {/* timeline */}
-      <div className='relative w-full mt-10 sm:mt-12 md:mt-16'>
-        <SpiderWeb experiences={experiences} />
-      </div>
+      <Accordion experiences={experiences}/>
     </section>
   )
 }

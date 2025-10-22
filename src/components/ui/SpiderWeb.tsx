@@ -46,7 +46,9 @@ export function SpiderWeb({ experiences }: SpiderWebProps) {
   const spiderTop = scrollProgress * (containerHeight - 150); 
 
   useEffect(() => {
+    
     lottieRef.current?.play();
+
   }, [scrollDirection]);
 
   return (
