@@ -43,13 +43,13 @@ const Page = () => {
         <header className='text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-normal'>
           EXPERIENCES
         </header>
-        <div className='shrink-0'>
-          <Navbar />
-        </div>
+        
       </div>
 
       {/* timeline */}
-      <Accordion experiences={experiences}/>
+      
+      <Accordion experiences={experiences} heading='My work records'/>
+      
     </section>
   )
 }
