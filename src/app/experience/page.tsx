@@ -37,7 +37,7 @@ const experiences = [
 
 const Page = () => {
   return (
-    <section className='bg-[#69CF73] min-h-screen flex flex-col px-4 font-[Jetbrains_Mono] overflow-x-hidden'>
+    <section className=' min-h-screen flex flex-col px-4 font-[Jetbrains_Mono] overflow-x-hidden'>
       {/* header */}
       <div className='flex flex-row justify-between items-center flex-wrap gap-4 mt-4 sm:mt-6 md:mt-8'>
         <header className='text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-normal'>

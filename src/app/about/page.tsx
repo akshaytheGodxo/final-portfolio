@@ -22,7 +22,7 @@ export default function AboutPage() {
     const frame9Opacity = useTransform(scrollYProgress, [0.3, 0.8], [0, 1]);
 
     return (
-        <div className="bg-[#69CF73] min-h-screen px-4" ref={containerRef}>
+        <div className=" min-h-screen px-4" ref={containerRef}>
             <Comp1 />
             <Comp2 />
         </div>
