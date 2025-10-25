@@ -21,7 +21,7 @@ function FrozenRouter(props: PropsWithChildren<{}>) {
 export default function TransitionProvider({ children, backgroundColor }: { children: React.ReactNode, backgroundColor?: string }) {
   const pathname = usePathname();
 
-  const anim = (variants:any, custom=null) => {
+  const anim = (variants: any, custom?: number | null) => {
     return {
         initial: "initial",
         animate: "enter",
