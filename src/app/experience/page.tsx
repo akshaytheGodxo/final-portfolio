@@ -35,6 +35,17 @@ const experiences = [
   },
 ]
 
+const projects = [
+  {
+    company: "Avrutti",
+    tech_stack:["https://toppng.com/uploads/preview/react-logo-icon-11609374122d9vkbptqap.png"],
+    duration: "2 weeks",
+    url: "www.google.com",
+    description: "I worked pretty hard for this",
+  }, 
+  
+]
+
 const Page = () => {
   return (
     <section className=' min-h-screen flex flex-col px-4 font-[Jetbrains_Mono] overflow-x-hidden'>
@@ -49,7 +60,6 @@ const Page = () => {
       {/* timeline */}
       
       <Accordion experiences={experiences} heading='My work records'/>
-      
     </section>
   )
 }

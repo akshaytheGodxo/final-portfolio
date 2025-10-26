@@ -23,7 +23,7 @@ export function Accordion({ experiences, heading }: AccordionProps) {
   };
 
   return (
-    <section className="w-full font-[Jetbrains_Mono] mt-20 text-gray-900">
+    <section className="w-full font-sans mt-20 text-gray-900">
       {/* Section heading */}
       <div className="text-4xl sm:text-5xl font-bold text-right py-6 text-black/90 tracking-wide">
         {heading}
@@ -54,7 +54,7 @@ export function Accordion({ experiences, heading }: AccordionProps) {
                   isOpen
                     ? "text-black"
                     : "text-black/70 hover:text-black/90"
-                } text-2xl sm:text-4xl`}
+                } text-2xl sm:text-6xl`}
               >
                 {exp.company}
               </label>
