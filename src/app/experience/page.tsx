@@ -10,6 +10,7 @@ const experiences = [
     duration: "May 2024 - Aug 2024",
     title: "Software Engineer Intern",
     description: "Worked on enhancing the performance of cloud services by optimizing database queries, resulting in a 15% reduction in latency.",
+    tech: ["/skills/reactjs.png", "/skills/nodejs.svg", "/skills/typescript.png"],
     position: "left"
   },
   {
@@ -18,20 +19,26 @@ const experiences = [
     title: "Software Engineer Intern",
     description: "Developed a new feature for Google Maps that improved user navigation experience, leading to a 10% increase in user engagement.",
     position: "right",
+    tech: ["/skills/reactjs.png", "/skills/nodejs.svg", "/skills/typescript.png"]
+
   },
   {
     company: "Amazon",
     duration: "May 2022 - Aug 2022",
     title: "Software Development Intern",
     description: "Contributed to the development of a scalable microservices architecture for the e-commerce platform, enhancing system reliability and maintainability.",
-    position: "left"
+    position: "left",
+    tech: ["/skills/reactjs.png", "/skills/nodejs.svg", "/skills/typescript.png"]
+
   },
   {
     company: "Facebook",
     duration: "May 2021 - Aug 2021",
     title: "Software Engineer Intern",
     description: "Implemented a machine learning algorithm to improve content recommendation, resulting in a 20% increase in user retention.",
-    position: "right"
+    position: "right",
+    tech: ["/skills/reactjs.png", "/skills/nodejs.svg", "/skills/typescript.png"]
+
   },
 ]
 
@@ -48,16 +55,15 @@ const projects = [
 
 const Page = () => {
   return (
-    <section className=' min-h-screen flex flex-col px-4 font-[Jetbrains_Mono] overflow-x-hidden'>
-      {/* header */}
+    <section className=' min-h-screen flex flex-col  font-[Jetbrains_Mono] overflow-x-hidden'>
       <div className='flex flex-row justify-between items-center flex-wrap gap-4 mt-4 sm:mt-6 md:mt-8'>
         <header className='text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-normal'>
-          EXPERIENCES
+            &lt;EXPERIENCES /&gt;
+
         </header>
         
       </div>
 
-      {/* timeline */}
       
       <Accordion experiences={experiences} heading='My work records'/>
     </section>

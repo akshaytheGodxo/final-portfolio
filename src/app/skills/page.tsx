@@ -17,40 +17,49 @@ export default function SkillsPage() {
   ];
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-6 py-16  text-black">
+    <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20  text-black">
       <motion.h1
-        initial={{ opacity: 0, y: -40 }}
+        initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="text-5xl md:text-6xl font-[Jetbrains_Mono] font-thin mb-16"
+        transition={{ duration: 0.6 }}
+        className="text-6xl md:text-7xl font-[Jetbrains_Mono] font-thin mb-20 tracking-tight"
       >
-        Skills & Tools
+        skills
       </motion.h1>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.8 }}
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-12 md:gap-16"
-      >
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-12 md:gap-16">
         {skills.map((skill, i) => (
           <motion.div
             key={i}
-            whileHover={{ scale: 1.1 }}
-            className="flex flex-col items-center text-center space-y-3"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: i * 0.05 }}
+            viewport={{ once: true }}
+            className="flex flex-col items-center text-center space-y-4"
           >
-            <div className="w-20 h-20 flex items-center justify-center rounded-xl shadow-md bg-white">
+            <div className="w-24 h-24 flex items-center justify-center bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-200">
               <Image
                 src={skill.icon}
                 alt={skill.name}
-                width={60}
-                height={60}
+                width={64}
+                height={64}
                 className="object-contain"
               />
             </div>
-            <p className="font-[Jetbrains_Mono] text-lg md:text-xl">{skill.name}</p>
+            <p className="font-[Jetbrains_Mono] text-lg text-gray-700 hover:text-black transition-colors duration-200">
+              {skill.name}
+            </p>
           </motion.div>
         ))}
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.6 }}
+        transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse" }}
+        className="mt-24 text-sm md:text-base font-[Jetbrains_Mono] text-gray-500"
+      >
+        <span>crafted with simplicity ⚡</span>
       </motion.div>
     </section>
   );

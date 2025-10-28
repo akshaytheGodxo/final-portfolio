@@ -5,7 +5,7 @@ body {
     background-color: #eed2cb;
 }
 
-.nerd-header {
+#nerd-header {
     font-family: "Micro 5", sans-serif;
     font-style: normal;
 }

@@ -5,7 +5,7 @@ export default function Comp1() {
     return (
         <section className=" min-h-screen px-4 font-[Jetbrains_Mono] grid grid-cols-2 ">
                 <div className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-normal mt-4 sm:mt-6">
-                    about me
+                    &lt;ABOUT ME /&gt;
                     <div className=" mt-35 space-y-8">
                         <motion.p
                             className="tracking-[24%] text-4xl font-normal overflow-hidden"

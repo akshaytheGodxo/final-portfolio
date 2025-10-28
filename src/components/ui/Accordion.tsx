@@ -23,9 +23,8 @@ export function Accordion({ experiences, heading }: AccordionProps) {
   };
 
   return (
-    <section className="w-full font-sans mt-20 text-gray-900">
-      {/* Section heading */}
-      <div className="text-4xl sm:text-5xl font-bold text-right py-6 text-black/90 tracking-wide">
+    <section className="w-full font-[Jetbrains_Mono] mt-20 text-gray-900">
+      <div className="text-4xl sm:text-5xl font-bold text-right py-6 text-black tracking-wide">
         {heading}
       </div>
 
@@ -33,51 +32,56 @@ export function Accordion({ experiences, heading }: AccordionProps) {
         const isOpen = openIndex === idx;
 
         return (
-          <div
+          <motion.div
             key={idx}
-            className="border-t border-black/20 py-5 cursor-pointer hover:bg-black/10 transition-colors duration-300"
             onClick={() => handleToggle(idx)}
+            className={`group relative border-t border-black/20 py-5 cursor-pointer transition-all duration-300 ${
+              isOpen ? "bg-black/5" : "hover:bg-black/10"
+            }`}
           >
-            {/* Header Row */}
-            <div className="flex justify-between items-center">
+            <motion.div
+              className="absolute left-0 top-0 h-full w-[2px] bg-black/70 origin-top"
+              animate={{ scaleY: isOpen ? 1 : 0 }}
+              transition={{ duration: 0.4 }}
+            />
+
+            <div className="flex justify-between items-center px-2 sm:px-4">
               <Image
                 src={"/Arrow.svg"}
                 alt="Arrow"
-                width={36}
-                height={36}
+                width={28}
+                height={28}
                 className={`transition-transform duration-300 ${
                   isOpen ? "-rotate-90" : ""
                 }`}
               />
-              <label
-                className={`font-bold text-right transition-colors duration-300 ${
-                  isOpen
-                    ? "text-black"
-                    : "text-black/70 hover:text-black/90"
-                } text-2xl sm:text-6xl`}
+              <motion.label
+                className={`font-bold text-right text-2xl sm:text-4xl transition-colors duration-300 ${
+                  isOpen ? "text-black" : "text-black/70 group-hover:text-black"
+                }`}
               >
                 {exp.company}
-              </label>
+              </motion.label>
             </div>
 
-            {/* Description */}
             <motion.div
-              className="overflow-hidden"
               initial={false}
               animate={{
                 height: isOpen ? "auto" : 0,
                 opacity: isOpen ? 1 : 0,
               }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="overflow-hidden"
             >
-              <div className="text-right text-base sm:text-lg leading-relaxed mt-3 text-black/70">
-                <span className="text-black/60 block mb-2 text-sm">
+              
+              <div className="text-right text-base sm:text-lg leading-relaxed mt-3 text-black/70 px-2 sm:px-4 pb-3">
+                <span className="block text-sm text-black/50 mb-1">
                   {exp.duration} — {exp.title}
                 </span>
                 {exp.description}
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         );
       })}
     </section>
