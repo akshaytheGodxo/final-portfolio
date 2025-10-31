@@ -23,8 +23,8 @@ export function Accordion({ experiences, heading }: AccordionProps) {
   };
 
   return (
-    <section className="w-full font-[Jetbrains_Mono] mt-20 text-gray-900">
-      <div className="text-4xl sm:text-5xl font-bold text-right py-6 text-black tracking-wide">
+    <section className="w-full mt-20 text-gray-900">
+      <div className="text-5xl sm:text-6xl font-bold text-right py-6 text-[#442e28] tracking-wide">
         {heading}
       </div>
 
@@ -56,8 +56,8 @@ export function Accordion({ experiences, heading }: AccordionProps) {
                 }`}
               />
               <motion.label
-                className={`font-bold text-right text-2xl sm:text-4xl transition-colors duration-300 ${
-                  isOpen ? "text-black" : "text-black/70 group-hover:text-black"
+                className={`font-medium text-right text-2xl sm:text-4xl transition-colors duration-300 ${
+                  isOpen ? "text-[#4f362f]" : "text-[#5a3e36]/70 group-hover:text-[#5a3e36]"
                 }`}
               >
                 {exp.company}

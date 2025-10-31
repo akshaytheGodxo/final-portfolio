@@ -1,35 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, JetBrains_Mono, Micro_5 } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import TransitionProvider from "@/components/Stairs";
-const jetBrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-});
 
-const micro5 = Micro_5({
-  variable: "--font-micro-5",
+const inter = Inter({
   subsets: ["latin"],
-  weight: "400",
-});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
-  title: "Akshay Singh Chauhan",
-  description: "My portfolio",
-};
-
-
-
+  title: "Akshay Singh Chauhan - Portfolio",
+  description:
+    "Akshay Singh Chauhan's Portfolio - Full-Stack Developer specializing in React, Next.js, Node.js, and more. Showcasing projects, skills, and contact information.",
+}
 
 export default function RootLayout({
   children,
@@ -39,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${jetBrainsMono.variable} ${micro5.variable} antialiased`}
+        className={`${inter.className} antialiased`}
       >
 
         

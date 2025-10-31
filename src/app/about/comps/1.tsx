@@ -3,7 +3,7 @@ import {motion} from "framer-motion";
 import Navbar from "@/components/Navbar";
 export default function Comp1() {
     return (
-        <section className=" min-h-screen px-4 font-[Jetbrains_Mono] grid grid-cols-2 ">
+        <section className=" min-h-screen px-4  grid grid-cols-2 ">
                 <div className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-normal mt-4 sm:mt-6">
                     &lt;ABOUT ME /&gt;
                     <div className=" mt-35 space-y-8">

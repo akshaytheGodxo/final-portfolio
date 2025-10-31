@@ -22,7 +22,7 @@ export default function SkillsPage() {
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-6xl md:text-7xl font-[Jetbrains_Mono] font-thin mb-20 tracking-tight"
+        className="text-6xl md:text-7xl  font-thin mb-20 tracking-tight"
       >
         skills
       </motion.h1>
@@ -46,7 +46,7 @@ export default function SkillsPage() {
                 className="object-contain"
               />
             </div>
-            <p className="font-[Jetbrains_Mono] text-lg text-gray-700 hover:text-black transition-colors duration-200">
+            <p className=" text-lg text-gray-700 hover:text-black transition-colors duration-200">
               {skill.name}
             </p>
           </motion.div>
@@ -57,7 +57,7 @@ export default function SkillsPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
         transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse" }}
-        className="mt-24 text-sm md:text-base font-[Jetbrains_Mono] text-gray-500"
+        className="mt-24 text-sm md:text-base  text-gray-500"
       >
         <span>crafted with simplicity ⚡</span>
       </motion.div>

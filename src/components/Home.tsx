@@ -17,14 +17,14 @@ export default function Mainskills() {
           </button>
         </div>
 
-        <div className="font-[Jetbrains_Mono] flex flex-col mt-10">
+        <div className=" flex flex-col mt-10">
           <h4 className="font-thin text-2xl sm:text-3xl mb-10">
             Akshay Singh Chauhan
           </h4>
           <div className="flex flex-col space-y-6 ">
             <Link
               href="/skills"
-              className="text-5xl sm:text-6xl font-[Jetbrains_Mono]  text-black"
+              className="text-5xl sm:text-6xl   text-black"
             >
               <motion.span
                 whileHover={{
@@ -37,13 +37,13 @@ export default function Mainskills() {
             </Link>
             <Link
               href="#experience"
-              className="text-5xl sm:text-6xl font-[Jetbrains_Mono] text-black"
+              className="text-5xl sm:text-6xl  text-black"
             >
               experience
             </Link>
             <Link
               href="/about"
-              className="text-5xl sm:text-6xl font-[Jetbrains_Mono] text-black"
+              className="text-5xl sm:text-6xl  text-black"
             >
               about
             </Link>
@@ -63,36 +63,40 @@ export default function Mainskills() {
 
       {/* center content (pc view) */}
       <div className="hidden md:flex flex-col items-center text-center space-y-12">
-        <h2 className="font-[Jetbrains_Mono] text-3xl lg:text-4xl font-thin text-black mt-4">
+        <h2 className=" text-3xl lg:text-4xl font-thin text-black mt-4">
           Akshay Singh Chauhan
         </h2>
 
         <div className="grid grid-rows-3 gap-8">
           <Link
             href="/skills"
-            className="font-[Jetbrains_Mono] text-black text-7xl lg:text-8xl"
+            className=" text-black text-7xl lg:text-8xl"
           >
             skills
           </Link>
           <button
             onClick={() => router.push("/experience")}
-            className="font-[Jetbrains_Mono] text-black text-7xl lg:text-8xl cursor-pointer"
+            className=" text-black text-7xl lg:text-8xl cursor-pointer"
           >
             experience
           </button>
           <Link
             href="/about"
-            className="font-[Jetbrains_Mono] text-black text-7xl lg:text-8xl cursor-pointer"
+            className=" text-black text-7xl lg:text-8xl cursor-pointer"
           >
             about
           </Link>
         </div>
 
         <div className="flex flex-col gap-4">
-          <button className="w-[280px] lg:w-[304px] h-[60px] lg:h-[68px] bg-black text-white rounded-[45px] cursor-pointer">
+          <button className="w-[280px] lg:w-[304px] h-[60px] lg:h-[68px] bg-black text-white rounded-[45px] cursor-pointer"
+            onClick={() => router.push("/connect")}
+          >
             Let's connect
           </button>
-          <button className="w-[280px] lg:w-[304px] h-[60px] lg:h-[68px] shadow-xl bg-transparent border border-black text-black rounded-[45px] cursor-pointer">
+          <button className="w-[280px] lg:w-[304px] h-[60px] lg:h-[68px] shadow-xl bg-transparent border border-black text-black rounded-[45px] cursor-pointer"
+          onClick={() => router.push("/Intern resume (1).pdf")}
+          >
             View resume
           </button>
         </div>

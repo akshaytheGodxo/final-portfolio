@@ -1,73 +1,87 @@
-'use client';
-import Link from 'next/link'
-import React from 'react'
-import Navbar from '@/components/Navbar'
-import { SpiderWeb } from '@/components/ui/SpiderWeb'
-import { Accordion } from '@/components/ui/Accordion';
+// ExperienceTimeline.tsx
+"use client";
+import { motion } from "framer-motion";
+import Image from "next/image";
+
 const experiences = [
   {
-    company: "Microsoft",
-    duration: "May 2024 - Aug 2024",
-    title: "Software Engineer Intern",
-    description: "Worked on enhancing the performance of cloud services by optimizing database queries, resulting in a 15% reduction in latency.",
-    tech: ["/skills/reactjs.png", "/skills/nodejs.svg", "/skills/typescript.png"],
-    position: "left"
+    company: "BridgeIn",
+    role: "Full Stack Developer Intern",
+    duration: "May 2024 – Aug 2024",
+    description:
+      "Built and optimized a networking platform for startups using Next.js, Prisma, and tRPC. Enhanced API performance and implemented dashboard analytics.",
   },
   {
-    company: "Google",
-    duration: "May 2023 - Aug 2023",
-    title: "Software Engineer Intern",
-    description: "Developed a new feature for Google Maps that improved user navigation experience, leading to a 10% increase in user engagement.",
-    position: "right",
-    tech: ["/skills/reactjs.png", "/skills/nodejs.svg", "/skills/typescript.png"]
-
+    company: "Cubical Green",
+    role: "Full Stack Developer Intern",
+    duration: "Jan 2024 – Apr 2024",
+    description:
+      "Developed the company website and internal tools using React and Node.js. Improved load times and added real-time updates for grant management.",
   },
   {
-    company: "Amazon",
-    duration: "May 2022 - Aug 2022",
-    title: "Software Development Intern",
-    description: "Contributed to the development of a scalable microservices architecture for the e-commerce platform, enhancing system reliability and maintainability.",
-    position: "left",
-    tech: ["/skills/reactjs.png", "/skills/nodejs.svg", "/skills/typescript.png"]
-
+    company: "Avrutti (SIH Project)",
+    role: "Backend Developer",
+    duration: "2023",
+    description:
+      "Designed backend APIs for agricultural IoT system using Node.js and Express. Implemented data range validation and efficient device communication.",
   },
-  {
-    company: "Facebook",
-    duration: "May 2021 - Aug 2021",
-    title: "Software Engineer Intern",
-    description: "Implemented a machine learning algorithm to improve content recommendation, resulting in a 20% increase in user retention.",
-    position: "right",
-    tech: ["/skills/reactjs.png", "/skills/nodejs.svg", "/skills/typescript.png"]
+];
 
-  },
-]
-
-const projects = [
-  {
-    company: "Avrutti",
-    tech_stack:["https://toppng.com/uploads/preview/react-logo-icon-11609374122d9vkbptqap.png"],
-    duration: "2 weeks",
-    url: "www.google.com",
-    description: "I worked pretty hard for this",
-  }, 
-  
-]
-
-const Page = () => {
+export default function ExperienceTimeline() {
   return (
-    <section className=' min-h-screen flex flex-col  font-[Jetbrains_Mono] overflow-x-hidden'>
-      <div className='flex flex-row justify-between items-center flex-wrap gap-4 mt-4 sm:mt-6 md:mt-8'>
-        <header className='text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-normal'>
-            &lt;EXPERIENCES /&gt;
+    <section className="min-h-screen bg-[#eed2cb] py-20 px-6 md:px-12">
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-bold text-center text-[#2b2b2b] mb-10">
+          My Experience
+        </h2>
 
-        </header>
-        
+        {/* TIMELINE CONTAINER */}
+        <div className="relative">
+          {/* Vertical line centered relative to container */}
+          <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-[#c97a6c]/70" />
+
+          {/* Items container: we place items to the right of the left line on small screens,
+              and alternate centered stacking on larger screens (keeps layout simple & consistent) */}
+          <div className="space-y-10 md:space-y-12">
+            {experiences.map((exp, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: idx * 0.08 }}
+                viewport={{ once: true }}
+                className="relative md:max-w-3xl md:mx-auto"
+              >
+                {/* Marker */}
+                <div
+                  className={`absolute -left-3 md:left-1/2 md:-translate-x-1/2 top-3 w-7 h-7 rounded-full border-4 border-white bg-[#c97a6c] shadow-md`}
+                />
+
+                {/* Card: on small screens shift right to clear left column; on md+ center and width-limited */}
+                <div className="ml-12 md:ml-0 md:pl-12">
+                  <div className="bg-white/90 p-6 rounded-2xl shadow-sm border border-[#e9d7d3] hover:shadow-md transition-all">
+                    <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
+                      <div>
+                        <h3 className="text-xl font-semibold text-[#2b2b2b]">
+                          {exp.company}
+                        </h3>
+                        <p className="text-sm text-[#6b5b59]">{exp.role}</p>
+                      </div>
+                      <div className="text-sm text-[#9b7c78] mt-2 md:mt-0 md:ml-4">
+                        {exp.duration}
+                      </div>
+                    </div>
+
+                    <p className="mt-4 text-[#4b4443] text-sm leading-relaxed">
+                      {exp.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
-
-      
-      <Accordion experiences={experiences} heading='My work records'/>
     </section>
-  )
+  );
 }
-
-export default Page
