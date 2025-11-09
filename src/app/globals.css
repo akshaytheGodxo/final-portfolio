@@ -2,10 +2,40 @@
 @import "tailwindcss";
 
 body {
-    background-color: #eed2cb;
+    background-color: #1c1c22;
+    color: #ffffff;
+    font-family: 'Jetbrains Mono', monospace;
 }
 
 #nerd-header {
     font-family: "Micro 5", sans-serif;
     font-style: normal;
+}
+
+.text-accent {
+    
+    color: rgb(143, 143, 255);
+}
+
+.bg-accent {
+    background-color: rgb(52, 52, 183);
+}
+
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
+@media (min-width: 1200px) {
+    .h1 {
+        font-size: 80px;
+    }
+}
+
+.h1 {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.1;
 }
