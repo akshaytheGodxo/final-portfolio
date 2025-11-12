@@ -6,8 +6,9 @@ import { useRouter } from "next/navigation";
 import Header from "./sections/Header";
 import Hero from "./sections/Hero";
 import Education from "./sections/Education";
-import { cn } from "@/lib/utils";
 import ShortProfile from "./sections/ShortProfile";
+import Projects from "./sections/Projects";
+import { cn } from "@/lib/utils";
 export default function Mainskills() {
   const router = useRouter();
 
@@ -20,6 +21,7 @@ export default function Mainskills() {
         <Hero /> 
         <Education />
         <ShortProfile />
+        <Projects />
       </div>
     </section>
   );
