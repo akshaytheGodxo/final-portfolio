@@ -8,6 +8,7 @@ import Hero from "./sections/Hero";
 import Education from "./sections/Education";
 import ShortProfile from "./sections/ShortProfile";
 import Projects from "./sections/Projects";
+import Experience from "./sections/Experience";
 import { cn } from "@/lib/utils";
 export default function Mainskills() {
   const router = useRouter();
@@ -22,6 +23,7 @@ export default function Mainskills() {
         <Education />
         <ShortProfile />
         <Projects />
+        <Experience />
       </div>
     </section>
   );

@@ -26,54 +26,6 @@ const projects = [
     ),
     tags: "Portfolio • Next.js • Tailwind"
   },
-  {
-    title: "Cubical Green",
-    href: "https://cubicalgreen.com/",
-    image: "/cubical-green.png",
-    header: "Cubical Green",
-    description: (
-      <>
-        A sustainability-focused web platform connecting eco-friendly startups with investors, built using <span className="text-slate-200 font-medium">React</span> and <span className="text-slate-200 font-medium">Node.js</span>.
-      </>
-    ),
-    tags: "Startup • React • Node.js"
-  },
-  {
-    title: "GameLearn",
-    href: "https://gamelearn-demo.vercel.app/",
-    image: "/gamelearn.png",
-    header: "GameLearn",
-    description: (
-      <>
-        An interactive <span className="text-slate-200 font-medium">Next.js</span> + <span className="text-slate-200 font-medium">Unity WebGL</span> project gamifying finance education through real-time market simulations.
-      </>
-    ),
-    tags: "EdTech • Gamification • Unity"
-  },
-  {
-    title: "DevTrackr",
-    href: "https://devtrackr.vercel.app/",
-    image: "/devtrackr.png",
-    header: "DevTrackr",
-    description: (
-      <>
-        A productivity tracker for developers integrating <span className="text-slate-200 font-medium">Supabase</span> authentication and <span className="text-slate-200 font-medium">tRPC</span> for blazing-fast API communication.
-      </>
-    ),
-    tags: "Fullstack • Supabase • tRPC"
-  },
-  {
-    title: "VisionAI",
-    href: "https://visionai-labs.vercel.app/",
-    image: "/visionai.png",
-    header: "VisionAI",
-    description: (
-      <>
-        A computer vision web app that performs object detection and tracking in real time using <span className="text-slate-200 font-medium">TensorFlow.js</span> and <span className="text-slate-200 font-medium">Next.js</span>.
-      </>
-    ),
-    tags: "AI • Computer Vision • TensorFlow.js"
-  }
 ];
 
 
@@ -84,7 +36,7 @@ export default function Projects() {
         <header className="text-6xl font-bold text-center text-white">
           Projects
         </header>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2  gap-10 place-items-center">
           {projects.map((project, idx) => (
           <PinContainer
             title={project.title}
